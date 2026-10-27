@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c12">
+  <meta name="description" content="A simple downloader interface for media you have permission to save.">
+  <title>ZDownloader</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="ZDownloader home"><span class="brand-icon">↧</span><span>ZDownloader<span class="brand-dot">.</span></span></a>
+    <span class="top-note"><span class="status-dot"></span>Just A Aextheic media downloader</span>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-line"></span> SAVE MEDIA YOU'RE ALLOWED TO DOWNLOAD</div>
+      <h1>The Best Downloader<br><span class="gradient-text">ZDownloader</span></h1>
+      <p class="hero-copy">Paste a public YouTube video or Instagram Reel link to preview it and choose a download option.</p>
+    </section>
+
+    <section class="download-card" aria-label="Downloader">
+      <label class="input-label" for="media-url">VIDEO OR REEL URL</label>
+      <div class="url-row">
+        <span class="link-icon" aria-hidden="true">↗</span>
+        <input id="media-url" type="url" placeholder="https://youtube.com/watch?v=…" autocomplete="url">
+        <button id="preview-btn" class="primary-btn" type="button"><span>Preview</span><span aria-hidden="true">→</span></button>
+      </div>
+      <div class="supported"><span>✓</span> YouTube <i></i> Instagram public links</div>
+
+      <div id="error-box" class="error-box" role="alert" hidden></div>
+      <div id="preview" class="preview" hidden>
+        <div class="thumbnail-wrap" id="thumbnail-wrap">
+          <div id="thumbnail-placeholder" class="thumbnail-placeholder" aria-hidden="true"><span class="placeholder-play">▶</span><span class="placeholder-shimmer"></span></div>
+          <img id="thumbnail" class="thumbnail" alt="Media thumbnail" hidden>
+        </div>
+        <div class="preview-info">
+          <div class="preview-tag">MEDIA PREVIEW</div>
+          <h2 id="media-title">Media title</h2>
+          <p id="media-meta"></p>
+        </div>
+      </div>
+
+      <div class="options">
+        <div class="option-group">
+          <label class="input-label" for="mode">DOWNLOAD TYPE</label>
+          <select id="mode">
+            <option value="video">Video Format)</option>
+            <option value="audio">Audio Format</option>
+          </select>
+        </div>
+        <div class="option-group">
+          <label class="input-label" for="quality">VIDEO QUALITY</label>
+          <select id="quality">
+            <option value="360">360p</option>
+            <option value="480">480p</option>
+            <option value="720">720p HD</option>
+            <option value="1080">1080p Full HD</option>
+            <option value="best" selected>Best available</option>
+          </select>
+        </div>
+      </div>
+      <button id="download-btn" class="download-btn" type="button"><span aria-hidden="true">↓</span> Download media</button>
+      <div id="progress" class="progress" hidden><span class="spinner"></span><span id="progress-text">Working on your request…</span></div>
+      <p class="fine-print">Only download content you own or have permission to save. Platform restrictions and available formats may vary.</p>
+    </section>
+
+    <section class="steps">
+      <div class="step"><span class="step-number">01</span><div><h3>Paste a link</h3><p>Use a supported public media URL.</p></div></div>
+      <div class="step"><span class="step-number">02</span><div><h3>Choose options</h3><p>Select video or audio and quality.</p></div></div>
+      <div class="step"><span class="step-number">03</span><div><h3>Save your file</h3><p>The server prepares the file for your browser.</p></div></div>
+    </section>
+  </main>
+  <footer><span>ZDOWNLOADER © 2026</span><span>Built By Zain</span></footer>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
